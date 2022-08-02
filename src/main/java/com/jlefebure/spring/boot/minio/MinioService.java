@@ -112,6 +112,7 @@ public class MinioService {
         ListObjectsArgs args = ListObjectsArgs.builder()
                 .bucket(configurationProperties.getBucket())
                 .prefix(path.toString())
+                .recursive(true)
                 .build();
         Iterable<Result<Item>> myObjects = minioClient.listObjects(args);
         return getItems(myObjects);
